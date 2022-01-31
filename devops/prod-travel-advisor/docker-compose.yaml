@@ -1,6 +1,6 @@
 version: "3.6"
 services:
-  frontend:
+  travel:
     build:
       context: $PWD/../..
       dockerfile: $PWD/travel/Dockerfile
