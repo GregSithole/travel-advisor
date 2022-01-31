@@ -1,16 +1,20 @@
+# pull official base image
 FROM node:lts
 
+# set working directory
 WORKDIR /app
 
-EXPOSE 80
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
-# Build angular app
-COPY package.json .
-RUN npm install
-RUN npm install -g @angular/cli@latest
-COPY . .
-RUN ng build --prod --aot
+# install app dependencies
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install --silent
+RUN npm install react-scripts -g --silent
 
-# Serve
-ENTRYPOINT [ "node" ]
-CMD [ "start.js"]
+# add app
+COPY . ./
+
+# start app
+CMD ["npm", "start"]

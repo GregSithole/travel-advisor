@@ -5,13 +5,15 @@ services:
       context: $PWD/../../frontend
       dockerfile: $PWD/frontend/Dockerfile
     restart: always
+    ports:
+      - "3000:3001"
     expose:
-      - "80"
+      - "3001"
       - "443"
     environment:
-      - VIRTUAL_HOST=gregsithole.com, www.gregsithole.com
+      - VIRTUAL_HOST=travel.gregsithole.com
       - VIRTUAL_PORT=80
-      - LETSENCRYPT_HOST=gregsithole.com, www.gregsithole.com
+      - LETSENCRYPT_HOST=travel.gregsithole.com
       - LETSENCRYPT_EMAIL=gregsithole@hotmail.co.za
 
 networks:
