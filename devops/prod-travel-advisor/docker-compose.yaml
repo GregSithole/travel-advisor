@@ -3,12 +3,10 @@ services:
   frontend:
     build:
       context: $PWD/../..
-      dockerfile: $PWD/frontend/Dockerfile
+      dockerfile: $PWD/travel/Dockerfile
     restart: always
-    ports:
-      - "3000:3001"
     expose:
-      - "3001"
+      - "80"
       - "443"
     environment:
       - VIRTUAL_HOST=travel.gregsithole.com
