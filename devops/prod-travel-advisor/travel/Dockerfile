@@ -4,8 +4,8 @@ FROM node:lts
 # set working directory
 WORKDIR /app
 
-# expose port 80
-EXPOSE 80
+# expose port 3000
+EXPOSE 3000
 
 # add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
