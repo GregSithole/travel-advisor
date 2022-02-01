@@ -15,8 +15,8 @@ RUN npm run build
 
 RUN npm install -g serve
 
-EXPOSE 3001
+EXPOSE 80
 
 # Serve
 ENTRYPOINT [ "serve" ]
-CMD [ "-s", "build", "-p", "3001"]
+CMD [ "-s", "build", "-p", "80"]
