@@ -1,17 +1,20 @@
 version: "3.6"
 services:
-  travel:
+  frontend:
     build:
       context: $PWD/../..
       dockerfile: $PWD/travel/Dockerfile
     restart: always
-    ports:
-      - "81:81"
     expose:
-      - "81"
+      - "80"
       - "443"
     environment:
       - VIRTUAL_HOST=travel.gregsithole.com
       - VIRTUAL_PORT=81
       - LETSENCRYPT_HOST=travel.gregsithole.com
       - LETSENCRYPT_EMAIL=gregsithole@hotmail.co.za
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
