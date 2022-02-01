@@ -5,16 +5,13 @@ services:
       context: $PWD/../..
       dockerfile: $PWD/travel/Dockerfile
     restart: always
+    ports:
+      - "3000:81"
     expose:
-      - "80"
+      - "81"
       - "443"
     environment:
       - VIRTUAL_HOST=travel.gregsithole.com
       - VIRTUAL_PORT=80
       - LETSENCRYPT_HOST=travel.gregsithole.com
       - LETSENCRYPT_EMAIL=gregsithole@hotmail.co.za
-
-networks:
-  default:
-    external:
-      name: nginx-proxy
