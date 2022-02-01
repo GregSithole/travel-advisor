@@ -12,6 +12,6 @@ services:
       - "443"
     environment:
       - VIRTUAL_HOST=travel.gregsithole.com
-      - VIRTUAL_PORT=80
+      - VIRTUAL_PORT=81
       - LETSENCRYPT_HOST=travel.gregsithole.com
       - LETSENCRYPT_EMAIL=gregsithole@hotmail.co.za
